@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=Film)"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div id="related_links" class="center">
+    	<h4>Conferma acquisto</h4>
+		<ul>
+		<h4>budget</h4>
+		<span th:text="${produttore.budget}"/>
+		<h4>costo</h4>
+		<span th:text="${film.costo}"/>
+		<h1><a th:href="@{'/confermaFinale'+ '/' + ${produttore.id} + '/' + ${film.id}}">SI</a></h1>
+		
+		<h1>
+		<a href='/filmAcquisto'>NO</a>
+		</h1>
+		
+		</ul>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

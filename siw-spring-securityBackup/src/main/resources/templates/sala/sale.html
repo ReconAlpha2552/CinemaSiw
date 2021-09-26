@@ -1,0 +1,22 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=Sale)"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div id="related_links" class="center">
+    	<h4>Lista delle sale</h4>
+		<ul>
+			<li th:each="sala : ${sale}">
+				<a href="sala.html" 
+				   th:href="@{'sala' + '/' + ${sala.id}}" 
+				   th:text="${sala.numero}"></a>
+			</li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

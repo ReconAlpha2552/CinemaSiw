@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=Cinema)"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <li th:each="cinemo : ${cinema}">
+    	<h4>Cinema:</h4>
+    	<div th:if="${cinemo}" th:object="${cinemo}">
+    	<h5>nome:</h5>
+    	<div class="center">
+			<h5 th:text="*{nome}">nome</h5>
+			</div>
+			
+			<h5>indirizzo:</h5>
+    	<div class="center">
+			<h5 th:text="*{indirizzo}">indirizzo</h5>
+			</div>
+		</li>
+		</div>
+   		</div>
+   		</div>
+   
+    <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

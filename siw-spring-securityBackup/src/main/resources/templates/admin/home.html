@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title='SIW')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <div>
+    	<h4 th:text="#{header.menuAdmin}">Menu</h4>
+		<div>
+			<a th:href="@{/filmForm}">Inserisci Film</a>
+   		</div>
+   		<div>
+			<a th:href="@{/registaForm}">Inserisci regista</a>
+   		</div>
+   		
+   		<div>
+			<a th:href="@{/salaForm}">Inserisci sala</a>
+   		</div>
+   		
+   		<div>
+			<a th:href="@{/filmAcquisto}">Acquista Film</a>
+   		</div>
+   		
+   		<div>
+			<a th:href="@{/produttoreModifica}">Modifica produttore</a>
+   		</div>
+   		
+   		<div>
+			<a th:href="@{/filmElimina}">Elimina Film</a>
+   		</div>
+   		
+   		
+   		<div>
+			<a th:href="@{/logout}">Logout</a>
+   		</div>
+    </div>
+    <footer th:replace="fragments/base.html :: fondo(home='/default')"></footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Insproduttore')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+		<h4>Modifica il produttore</h4>
+	</div>
+	<form th:action="@{'/confermaModifica' + '/' + ${produttore.id}}" method="POST" th:object="${produttore}">
+		<div class="center">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+			<div>
+				<span>Nome:</span>
+				<span><input type="text" th:field="${produttore.nome}" /></span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>	
+			<div>
+				<span>Cognome:</span>
+				<span><input type="text" th:field="${produttore.cognome}" /></span>
+				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+			</div>	
+			
+			<div>
+				<span>Nazionalita:</span>
+				<span><input type="text" th:field="${produttore.nazionalita}" /></span>
+				<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
+			</div>	
+			
+			<div>
+				<span>Budget:</span>
+				<span><input type="text" th:field="${produttore.budget}" /></span>
+				<span th:if="${#fields.hasErrors('budget')}" th:errors="*{budget}"></span>
+			</div>	
+			<div>
+				<span><button type="submit">SUBMIT</button></span>
+			</div>
+		</div>
+	</form>
+	</div>
+    <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

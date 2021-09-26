@@ -1,0 +1,22 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=FilmAquisto)"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div id="related_links" class="center">
+    	<h4>Lista dei film</h4>
+		<ul>
+			<li th:each="film : ${films}">
+				<a href="film.html" 
+				   th:href="@{'/filmElimina' + '/' + ${film.id}}" 
+				   th:text="${film.titolo}"></a>
+			</li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='InsFilm')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+		<h4>Inserisci film</h4>
+	</div>
+	<form th:action="@{/filmForm}" method="POST" th:object="${film}">
+		<div class="center">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+			<div>
+				<span>Titolo:</span>
+				<span><input type="text" th:field="${film.titolo}" /></span>
+				<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+			</div>	
+			<div>
+				<span>Genere:</span>
+				<span><input type="text" th:field="${film.genere}" /></span>
+				<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
+			</div>	
+			
+			<div>
+				<span>Durata:</span>
+				<span><input type="text" th:field="${film.durata}" /></span>
+				<span th:if="${#fields.hasErrors('durata')}" th:errors="*{durata}"></span>
+			</div>	
+			
+			<div>
+				<span>Protagonista:</span>
+				<span><input type="text" th:field="${film.protagonista}" /></span>
+				<span th:if="${#fields.hasErrors('protagonista')}" th:errors="*{protagonista}"></span>
+			</div>	
+			
+			<div>
+				<span>Costo:</span>
+				<span><input type="text" th:field="${film.costo}" /></span>
+				<span th:if="${#fields.hasErrors('costo')}" th:errors="*{costo}"></span>
+			</div>
+			
+			<div>
+				<span><button type="submit">SUBMIT</button></span>
+			</div>
+		</div>
+	</form>
+	</div>
+    <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

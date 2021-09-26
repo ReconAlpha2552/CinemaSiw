@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=Film)"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="transparentbox">
+    <div class="center">
+    	<h4>Film:</h4>
+    	<div th:if="${film}" th:object="${film}">
+    	<h5>titolo:</h5>
+    	<div class="center">
+			<h5 th:text="*{titolo}">titolo</h5>
+			</div>
+			
+			<h5>genere:</h5>
+    	<div class="center">
+			<h5 th:text="*{genere}">genere</h5>
+			</div>
+			
+			<h5>protagonista:</h5>
+    	<div class="center">
+			<h5 th:text="*{protagonista}">protagonista</h5>
+			</div>
+			
+			<h5>durata:</h5>
+    	<div class="center">
+			<h5 th:text="*{durata}">durata</h5>
+			</div>
+			
+		</div>
+   		</div>
+   		</div>
+   
+    <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

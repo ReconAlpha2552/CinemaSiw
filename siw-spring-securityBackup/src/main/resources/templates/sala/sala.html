@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=Sala)"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="transparentbox">
+    <div class="center">
+    	<h4>Sale:</h4>
+    	<div th:if="${sala}" th:object="${sala}">
+    	<h5>Posti a sedere:</h5>
+    		<div class="center">
+			<h5 th:text="*{capacita}">capacita'</h5>
+			</div>
+		<h5>Numero:</h5>
+			<div class="center">
+			<h5 th:text="*{numero}">numero</h5>
+			</div>
+		</div>
+   		</div>
+   		</div>
+   
+    <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

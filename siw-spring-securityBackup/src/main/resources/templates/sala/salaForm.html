@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='InsSala')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+		<h4>Inserisci sala</h4>
+	</div>
+	<form th:action="@{/salaForm}" method="POST" th:object="${sala}">
+		<div class="center">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+			<div>
+				<span>Capacita':</span>
+				<span><input type="text" th:field="${sala.capacita}" /></span>
+				<span th:if="${#fields.hasErrors('capacita')}" th:errors="*{capacita}"></span>
+			</div>	
+			<div>
+				<span>Numero:</span>
+				<span><input type="text" th:field="${sala.numero}" /></span>
+				<span th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></span>
+			</div>	
+			
+			<div>
+				<span><button type="submit">SUBMIT</button></span>
+			</div>
+		</div>
+	</form>
+	</div>
+    <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>
